@@ -169,12 +169,12 @@
         </div>
 
         <div class="category-container">
-            <a href="technological-devices-inventory.php" class="category-card">
+            <a href="Tech-Dev-Inv/technological-devices-inventory.php" class="category-card">
                 <div class="statistic-icon"><i class="fas fa-laptop"></i></div>
                 <div class="statistic-label">Technological Devices</div>
             </a>
 
-            <a href="food-storage-inventory.php" class="category-card">
+            <a href="Food-Stor-Inv/food-storage-inventory.php" class="category-card">
                 <div class="statistic-icon"><i class="fas fa-hamburger"></i></div>
                 <div class="statistic-label">Food Storage</div>
             </a>

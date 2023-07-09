@@ -100,6 +100,7 @@
       align-items: center;
       font-weight: bold;
       border-bottom: 1px solid #ddd;
+      justify-content: space-between;
     }
 
     .list-header .list-title {
@@ -317,10 +318,10 @@
 </head>
 
 <body>
-  <a href="Dashboard.php" class="go-back-btn">&lt;</a>
+  <a href="http://localhost/Practice%20Inventory%20System/Dashboard.php" class="go-back-btn">&lt;</a>
 
   <div class="header">
-    <h1 class="header-title">Technological Devices</h1>
+    <h1 class="header-title">Food Storage</h1>
   </div>
 
   <div class="container">
@@ -336,12 +337,10 @@
     </div>
 
     <div class="list-header">
-        <div class="list-title active" data-sort="asc">Equipment ID<span class="arrow">&#9650;</span></div>
-        <div class="list-title" data-sort="asc">Equipment Type<span class="arrow">&#9650;</span></div>
-        <div class="list-title" data-sort="asc">Product Model<span class="arrow">&#9650;</span></div>
+        <div class="list-title active" data-sort="asc">Product Expiration<span class="arrow">&#9650;</span></div>
+        <div class="list-title" data-sort="asc">Product Name<span class="arrow">&#9650;</span></div>
         <div class="list-title" data-sort="asc">Supplier<span class="arrow">&#9650;</span></div>
-        <div class="list-title" data-sort="asc">Serial Number<span class="arrow">&#9650;</span></div>
-        <div class="list-title" data-sort="asc">End User<span class="arrow">&#9650;</span></div>
+        <div class="list-title" data-sort="asc">Date Bought<span class="arrow">&#9650;</span></div>
     </div>
 
     <div class="list-section" id="item-list-container">
@@ -353,7 +352,7 @@
     </div>
   </div>
 
-  <!-- Add Item Modal -->
+<!-- Add Item Modal -->
 <div id="add-item-modal" class="modal">
   <div class="modal-content">
     <span class="close" id="add-item-modal-close">&times;</span>
@@ -363,28 +362,20 @@
     <div class="modal-body">
       <form id="add-item-form" method="post">
         <div class="form-group">
-          <label for="equipment-id">Equipment ID:</label>
-          <input type="text" id="equipment-id" name="equipment_id" required>
+          <label for="product-exp-date">Product Expiration:</label>
+          <input type="date" id="product-exp-date" name="product_exp_date" required>
         </div>
         <div class="form-group">
-          <label for="equipment-type">Equipment Type:</label>
-          <input type="text" id="equipment-type" name="equipment_type" required>
-        </div>
-        <div class="form-group">
-          <label for="product-model">Product Model:</label>
-          <input type="text" id="product-model" name="product_model" required>
+          <label for="product-name">Product Name:</label>
+          <input type="text" id="product-name" name="product_name" required>
         </div>
         <div class="form-group">
           <label for="supplier">Supplier:</label>
           <input type="text" id="supplier" name="supplier" required>
         </div>
         <div class="form-group">
-          <label for="serial-number">Serial Number:</label>
-          <input type="text" id="serial-number" name="serial_number" required>
-        </div>
-        <div class="form-group">
-          <label for="end-user">End User:</label>
-          <input type="text" id="end-user" name="end_user" required>
+          <label for="date-bought">Date Bought:</label>
+          <input type="date" id="date-bought" name="date_bought" required>
         </div>
         <div class="form-actions">
           <button type="submit" form="add-item-form" id="add-item-button">Add</button>
@@ -405,28 +396,20 @@
       <form id="edit-item-form" method="post">
         <input type="hidden" id="edit-item-id" name="id">
         <div class="form-group">
-          <label for="edit-equipment-id">Equipment ID:</label>
-          <input type="text" id="edit-equipment-id" name="equipment_id" required>
+          <label for="product-exp-date">Product Expiration:</label>
+          <input type="date" id="edit-product-exp-date" name="product_exp_date" required>
         </div>
         <div class="form-group">
-          <label for="edit-equipment-type">Equipment Type:</label>
-          <input type="text" id="edit-equipment-type" name="equipment_type" required>
+          <label for="product-name">Product Name:</label>
+          <input type="text" id="edit-product-name" name="product_name" required>
         </div>
         <div class="form-group">
-          <label for="edit-product-model">Product Model:</label>
-          <input type="text" id="edit-product-model" name="product_model" required>
-        </div>
-        <div class="form-group">
-          <label for="edit-supplier">Supplier:</label>
+          <label for="supplier">Supplier:</label>
           <input type="text" id="edit-supplier" name="supplier" required>
         </div>
         <div class="form-group">
-          <label for="edit-serial-number">Serial Number:</label>
-          <input type="text" id="edit-serial-number" name="serial_number" required>
-        </div>
-        <div class="form-group">
-          <label for="edit-end-user">End User:</label>
-          <input type="text" id="edit-end-user" name="end_user" required>
+          <label for="date-bought">Date Bought:</label>
+          <input type="date" id="edit-date-bought" name="date_bought" required>
         </div>
         <div class="form-actions">
           <button type="submit" form="edit-item-form" id="save-item-button">Save</button>
@@ -436,9 +419,7 @@
   </div>
 </div>
 
-
-  <script src="td-inventory.js"></script>
-
+  <script src="fs-inventory.js"></script>
 
 </body>
 
