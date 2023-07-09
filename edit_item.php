@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $endUser = $_POST['end_user'];
 
   // Prepare the update query
-  $stmt = $conn->prepare("UPDATE technological_devices SET equipment_id=?, equipment_type=?, product_model=?, supplier=?, serial_number=?, end_user=? WHERE id=?");
+  $stmt = $conn->prepare("UPDATE technological_devices SET equipment_id=?, equipment_type=?, product_model=?, supplier=?, serial_number=?, end_user=?, updated_at=NOW() WHERE id=?");
   $stmt->bind_param("ssssssi", $equipmentId, $equipmentType, $productModel, $supplier, $serialNumber, $endUser, $itemId);
 
   // Execute the update query

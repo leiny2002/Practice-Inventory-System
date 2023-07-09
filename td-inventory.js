@@ -74,6 +74,60 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Sort direction constants
+    const SORT_ASC = 'asc';
+    const SORT_DESC = 'desc';
+
+    // Get the list header elements
+    const listHeaders = document.querySelectorAll('.list-title');
+
+    // Function to sort the list by a specific column
+    function sortList(columnIndex, sortDirection) {
+        const items = Array.from(itemListContainer.getElementsByClassName('list'));
+
+        // Sort the items based on the column value
+        items.sort((a, b) => {
+            const aColumnValue = a.getElementsByClassName('list-info')[columnIndex].textContent;
+            const bColumnValue = b.getElementsByClassName('list-info')[columnIndex].textContent;
+            return sortDirection === SORT_ASC
+                ? aColumnValue.localeCompare(bColumnValue)
+                : bColumnValue.localeCompare(aColumnValue);
+        });
+
+        // Clear the existing list
+        itemListContainer.innerHTML = '';
+
+        // Append the sorted items back to the list container
+        items.forEach((item) => {
+            itemListContainer.appendChild(item);
+        });
+    }
+
+    // Function to toggle the sort direction and update the arrow icon
+    function toggleSortDirection(headerElement) {
+        const arrowElement = headerElement.querySelector('.arrow');
+        const currentSortDirection = headerElement.getAttribute('data-sort');
+
+        if (currentSortDirection === SORT_ASC) {
+            headerElement.setAttribute('data-sort', SORT_DESC);
+            arrowElement.textContent = '\u25BC'; // Down arrow
+        } else {
+            headerElement.setAttribute('data-sort', SORT_ASC);
+            arrowElement.textContent = '\u25B2'; // Up arrow
+        }
+    }
+
+    // Add click event listeners to list headers
+    listHeaders.forEach((headerElement, columnIndex) => {
+        headerElement.addEventListener('click', () => {
+            const currentSortDirection = headerElement.getAttribute('data-sort');
+            const newSortDirection = currentSortDirection === SORT_ASC ? SORT_DESC : SORT_ASC;
+
+            toggleSortDirection(headerElement);
+            sortList(columnIndex, newSortDirection);
+        });
+    });
+
     document.querySelector('.list-section').addEventListener('click', function (event) {
         const target = event.target;
         if (target.classList.contains('edit')) {
