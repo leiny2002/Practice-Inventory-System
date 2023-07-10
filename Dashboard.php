@@ -152,19 +152,25 @@
             <div class="statistic-card">
                 <div class="statistic-icon"><i class="fas fa-calendar"></i></div>
                 <div class="statistic-label">Items Listed This Week</div>
-                <div class="statistic-value">80</div>
+                <div class="statistic-value">
+                    <?php include('week_list.php'); echo getItemsListedThisWeekCount(); ?>
+                </div>
             </div>
 
             <div class="statistic-card">
                 <div class="statistic-icon"><i class="fas fa-box"></i></div>
                 <div class="statistic-label">Total Items</div>
-                <div class="statistic-value">250</div>
+                <div class="statistic-value">
+                    <?php include('total_list.php'); echo getTotalItemCount(); ?>
+                </div>
             </div>
 
             <div class="statistic-card">
                 <div class="statistic-icon"><i class="fas fa-users"></i></div>
                 <div class="statistic-label">Users</div>
-                <div class="statistic-value">120</div>
+                <div class="statistic-value">
+                    <?php include 'total_user.php'; echo getUserCount(); ?>
+                </div>
             </div>
         </div>
 
@@ -179,7 +185,7 @@
                 <div class="statistic-label">Food Storage</div>
             </a>
 
-            <a href="cleaning-materials-inventory.php" class="category-card">
+            <a href="Clean-Mat-Inv/cleaning-materials-inventory.php" class="category-card">
                 <div class="statistic-icon"><i class="fas fa-broom"></i></div>
                 <div class="statistic-label">Cleaning Materials</div>
             </a>
